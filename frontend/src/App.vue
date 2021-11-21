@@ -20,6 +20,9 @@
     <img v-if="your_input==1" v-bind:src="choki_fig">
     <img v-if="your_input==2" v-bind:src="pa_fig">
     </v-col>
+    <v-col  class="d-flex child-flex">
+      <img v-bind:src="'static/text_versus_vs.png'">
+    </v-col>
     <p>量子コンピューター</p>
     <v-col class="d-flex child-flex">
     <img v-if="q_output==null" v-bind:src="q_fig">
