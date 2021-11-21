@@ -13,15 +13,15 @@
     <v-container>
     <v-row
     >
-    <v-col class="d-flex child-flex">
     <p>あなた</p>
+    <v-col class="d-flex child-flex">
     <img v-if="your_input==null" v-bind:src="your_fig">
     <img v-if="your_input==0" v-bind:src="gu_fig">
     <img v-if="your_input==1" v-bind:src="choki_fig">
     <img v-if="your_input==2" v-bind:src="pa_fig">
     </v-col>
-    <v-col class="d-flex child-flex">
     <p>量子コンピューター</p>
+    <v-col class="d-flex child-flex">
     <img v-if="q_output==null" v-bind:src="q_fig">
     <img v-if="q_output==0" v-bind:src="gu_fig">
     <img v-if="q_output==1" v-bind:src="choki_fig">
@@ -63,9 +63,8 @@
       </v-btn>    
       </v-card>  
       <v-row align="start" justify="center">
-        <v-col cols="6">
+        <v-col cols="12">
         <v-card
-          max-width="450"
           class="mx-auto"
         >
           <v-toolbar
