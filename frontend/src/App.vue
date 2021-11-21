@@ -1,25 +1,33 @@
 <template>
   <v-app>
-     <!-- <v-app-bar
+    <header>
+     <v-app-bar
       app
       color="primary"
       dark
-    /> -->
-    <v-card
-      class="d-flex justify-space-between mx-auto my-auto"
     >
+     <v-toolbar-title>janQen</v-toolbar-title>
+     </v-app-bar>
+    </header>
+    <v-content>
+    <v-container>
+    <v-row
+    >
+    <v-col class="d-flex child-flex">
     <p>あなた</p>
     <img v-if="your_input==null" v-bind:src="your_fig">
     <img v-if="your_input==0" v-bind:src="gu_fig">
     <img v-if="your_input==1" v-bind:src="choki_fig">
     <img v-if="your_input==2" v-bind:src="pa_fig">
+    </v-col>
+    <v-col class="d-flex child-flex">
     <p>量子コンピューター</p>
     <img v-if="q_output==null" v-bind:src="q_fig">
     <img v-if="q_output==0" v-bind:src="gu_fig">
     <img v-if="q_output==1" v-bind:src="choki_fig">
     <img v-if="q_output==2" v-bind:src="pa_fig">
-    </v-card>
-    <v-container fluid>
+    </v-col>
+    </v-row>
       <v-card
       class="d-flex justify-space-between mb-6"
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
@@ -87,6 +95,7 @@
         </v-col>
       </v-row>
     </v-container>
+    </v-content>
   </v-app>
 </template>
 
