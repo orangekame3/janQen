@@ -1,36 +1,56 @@
 <template>
   <v-app>
-    <header>
-     <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-     <v-toolbar-title>janQen</v-toolbar-title>
-     </v-app-bar>
-    </header>
+    <v-navigation-drawer app clipped v-model="drawer" dark color="#8E2DE2">
+    </v-navigation-drawer>
+    <v-app-bar app clippedLeft flat dark color="#8E2DE2">
+      <v-app-bar-nav-icon @click.stop="drawer=!drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>janQen</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn outlined  href="https://github.com/orangekame3/janqen">GitHub</v-btn>
+    </v-app-bar>
     <v-content>
+      <v-container>
+            <v-card>
+          <v-card-title>ようこそjanQenへ</v-card-title>
+          <v-card-text>
+            janQenは量子コンピュータとジャンケンするサービスです。<br>
+            「グー」「チョキ」「パー」のボタンを押してください。<br>
+            すぐにゲームをはじめることができます。<br>
+            janQenの仕組みについて知りたい方は<a href="https://github.com/orangekame3/janqen">こちら</a>
+          </v-card-text>
+      </v-card>
+      </v-container>
     <v-container>
-    <v-row
-    >
-    <p>あなた</p>
-    <v-col class="d-flex child-flex">
+     <v-container> 
+       <v-row>
+         <v-col>
+         <p>あなた</p>
+         </v-col>
+         <v-col>
+         <p>量子コンピューター</p>
+         </v-col>
+       </v-row>
+     <v-container>  
+    <v-row>
+    <v-col >
+      <v-card class="d-flex child-flex" height="100%">
     <img v-if="your_input==null" v-bind:src="your_fig">
     <img v-if="your_input==0" v-bind:src="gu_fig">
     <img v-if="your_input==1" v-bind:src="choki_fig">
     <img v-if="your_input==2" v-bind:src="pa_fig">
+      </v-card>
     </v-col>
-    <!-- <v-col  class="d-flex child-flex">
-      <img v-bind:src="'static/text_versus_vs.png'">
-    </v-col> -->
-    <p>量子コンピューター</p>
-    <v-col class="d-flex child-flex">
-    <img v-if="q_output==null" v-bind:src="q_fig">
+    <v-col>
+      <v-card  class="d-flex child-flex" height="100%">
+    <img v-if="q_output==null" v-bind:src="q_fig" >
     <img v-if="q_output==0" v-bind:src="gu_fig">
     <img v-if="q_output==1" v-bind:src="choki_fig">
     <img v-if="q_output==2" v-bind:src="pa_fig">
+      </v-card>
     </v-col>
     </v-row>
+     </v-container>
+     </v-container>
       <v-card
       class="d-flex justify-space-between mb-6"
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
@@ -38,27 +58,30 @@
       tile
     >
       <v-btn
+      height="70px" width="120"
       :loading="loading1"
       :disabled="loading1"
-      color="blue-grey"
+      color="#8E2DE2"
       class="ma-2 white--text"
       @click="gu"
       >
       グー
       </v-btn>
       <v-btn
+      height="70px" width="120"
       :loading="loading2"
       :disabled="loading2"
-      color="blue-grey"
+      color="#8E2DE2"
       class="ma-2 white--text"
       @click="tyoki"
       >
       チョキ
       </v-btn>
       <v-btn
+      height="70px" width="120"
       :loading="loading3"
       :disabled="loading3"
-      color="blue-grey"
+      color="#8E2DE2"
       class="ma-2 white--text"
       @click="pa"
       >
@@ -71,11 +94,11 @@
           class="mx-auto"
         >
           <v-toolbar
+            color="#8E2DE2"
             dark
           >
             <v-toolbar-title>Result</v-toolbar-title>
           </v-toolbar>
-
           <v-list three-line>
             <template v-for="(item, index) in items">
               <v-list-item
@@ -98,6 +121,9 @@
       </v-row>
     </v-container>
     </v-content>
+    <v-footer app dark color="#8E2DE2">
+      @orangekame3
+    </v-footer>
   </v-app>
 </template>
 
@@ -125,7 +151,8 @@ export default {
       q_fig:"static/computer_ryoushi_quantum.png",
       load_fig:"static/computer_bar5_load.png",
       your_input:null,
-      q_output:null
+      q_output:null,
+      drawer: null
     }
   },
 
