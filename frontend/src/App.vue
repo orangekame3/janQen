@@ -1,5 +1,6 @@
 <template>
   <v-app>
+<<<<<<< HEAD
     <v-navigation-drawer app clipped v-model="drawer" dark color="#8E2DE2">
     </v-navigation-drawer>
     <v-app-bar app clippedLeft flat dark color="#8E2DE2">
@@ -34,10 +35,28 @@
     <v-row>
     <v-col >
       <v-card class="d-flex child-flex" height="100%">
+=======
+    <header>
+     <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+     <v-toolbar-title>janQen</v-toolbar-title>
+     </v-app-bar>
+    </header>
+    <v-content>
+    <v-container>
+    <v-row
+    >
+    <v-col class="d-flex child-flex">
+    <p>あなた</p>
+>>>>>>> da29c8d... second-commit
     <img v-if="your_input==null" v-bind:src="your_fig">
     <img v-if="your_input==0" v-bind:src="gu_fig">
     <img v-if="your_input==1" v-bind:src="choki_fig">
     <img v-if="your_input==2" v-bind:src="pa_fig">
+<<<<<<< HEAD
       </v-card>
     </v-col>
     <v-col>
@@ -51,6 +70,17 @@
     </v-row>
      </v-container>
      </v-container>
+=======
+    </v-col>
+    <v-col class="d-flex child-flex">
+    <p>量子コンピューター</p>
+    <img v-if="q_output==null" v-bind:src="q_fig">
+    <img v-if="q_output==0" v-bind:src="gu_fig">
+    <img v-if="q_output==1" v-bind:src="choki_fig">
+    <img v-if="q_output==2" v-bind:src="pa_fig">
+    </v-col>
+    </v-row>
+>>>>>>> da29c8d... second-commit
       <v-card
       class="d-flex justify-space-between mb-6"
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
@@ -121,9 +151,12 @@
       </v-row>
     </v-container>
     </v-content>
+<<<<<<< HEAD
     <v-footer app dark color="#8E2DE2">
       @orangekame3
     </v-footer>
+=======
+>>>>>>> da29c8d... second-commit
   </v-app>
 </template>
 
