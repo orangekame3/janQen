@@ -9,29 +9,29 @@
       <v-btn outlined  href="https://github.com/orangekame3/janqen">GitHub</v-btn>
     </v-app-bar>
     <v-content>
-      <v-container>
-        <v-card>
-        <v-row  justify="center" align-content="center" >
-          <v-col>
-          <v-card-title>ようこそjanQenへ</v-card-title>
-          <v-card-text>
-            janQenは量子コンピュータとジャンケンするサービスです。<br>
-            「グー」「チョキ」「パー」のボタンを押してください。<br>
-            すぐにゲームをはじめることができます。<br>
-            janQenの仕組みについて知りたい方は<a href="https://github.com/orangekame3/janqen">こちら</a><br>
-            量子コンピュータはあなたの入力が完了したら乱数計算をはじめます。<br>
-            出力結果は右に表示されます。<br>
-            <v-container ma-16>
-             <img  v-bind:src="janqen"  height="240px" >
-            </v-container>
-          </v-card-text>
-          </v-col>
-          <v-col>
-          <v-card>
-          <img  v-bind:src="histogram">
-          </v-card>
-          </v-col>
-      </v-row>
+      <v-container fluid>
+        <v-card class="mx-auto my-12" width="100%">
+          <v-row  justify="center" align-content="center" >
+            <v-col>
+              <v-card-title>ようこそjanQenへ</v-card-title>
+              <v-card-text>
+                janQenは量子コンピュータとジャンケンするサービスです。<br>
+                「グー」「チョキ」「パー」のボタンを押してください。<br>
+                すぐにゲームをはじめることができます。<br>
+                janQenの仕組みについて知りたい方は<a href="https://github.com/orangekame3/janqen">こちら</a><br>
+                量子コンピュータはあなたの入力が完了したら乱数計算をはじめます。<br>
+                出力結果は[Result]に表示されます。<br>
+                <v-container>
+                <img  v-bind:src="janqen" height="240px">
+                </v-container>
+              </v-card-text>
+            </v-col>
+            <v-col>
+              <v-card>
+              <img  v-bind:src="histogram" width="100%">
+              </v-card>
+            </v-col>
+            </v-row>
        </v-card>
       </v-container>
     <v-container>
@@ -167,7 +167,7 @@ export default {
       your_input:null,
       q_output:null,
       drawer: null,
-      histogram : 'static/out.png',
+      histogram : 'static/result.png',
       janqen:'static/janQen.png'
     }
   },
