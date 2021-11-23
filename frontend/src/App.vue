@@ -10,15 +10,29 @@
     </v-app-bar>
     <v-content>
       <v-container>
-            <v-card>
+        <v-card>
+        <v-row  justify="center" align-content="center" >
+          <v-col>
           <v-card-title>ようこそjanQenへ</v-card-title>
           <v-card-text>
             janQenは量子コンピュータとジャンケンするサービスです。<br>
             「グー」「チョキ」「パー」のボタンを押してください。<br>
             すぐにゲームをはじめることができます。<br>
-            janQenの仕組みについて知りたい方は<a href="https://github.com/orangekame3/janqen">こちら</a>
+            janQenの仕組みについて知りたい方は<a href="https://github.com/orangekame3/janqen">こちら</a><br>
+            量子コンピュータはあなたの入力が完了したら乱数計算をはじめます。<br>
+            出力結果は右に表示されます。<br>
+            <v-container ma-16>
+             <img  v-bind:src="janqen"  height="240px" >
+            </v-container>
           </v-card-text>
-      </v-card>
+          </v-col>
+          <v-col>
+          <v-card>
+          <img  v-bind:src="histogram">
+          </v-card>
+          </v-col>
+      </v-row>
+       </v-card>
       </v-container>
     <v-container>
      <v-container> 
@@ -152,7 +166,9 @@ export default {
       load_fig:"static/computer_bar5_load.png",
       your_input:null,
       q_output:null,
-      drawer: null
+      drawer: null,
+      histogram : 'static/out.png',
+      janqen:'static/janQen.png'
     }
   },
 
@@ -167,6 +183,7 @@ export default {
         .then(response => {
           this.items.push(response.data)
           this.q_output = response.data.output_num
+          this.histogram = response.data.fig
         })
     },
     tyoki:function () {
@@ -179,6 +196,7 @@ export default {
         .then(response => {
           this.items.push(response.data)
           this.q_output = response.data.output_num
+          this.histogram = response.data.fig
         })
     },
     pa:function () {
@@ -191,6 +209,7 @@ export default {
         .then(response => {
           this.items.push(response.data)
           this.q_output = response.data.output_num
+          this.histogram = response.data.fig
         })
     },
     SendData: function () {
