@@ -167,8 +167,8 @@ export default {
       your_input:null,
       q_output:null,
       drawer: null,
-      histogram : 'static/result.png',
-      janqen:'static/janQen.png'
+      histogram : "static/result.png",
+      janqen:"static/janQen.png"
     }
   },
 
@@ -184,7 +184,7 @@ export default {
         .then(response => {
           this.items.push(response.data)
           this.q_output = response.data.output_num
-          this.histogram = response.data.fig
+          this.histogram = 'static/out.png'
         })
     },
     tyoki:function () {
@@ -198,7 +198,7 @@ export default {
         .then(response => {
           this.items.push(response.data)
           this.q_output = response.data.output_num
-          this.histogram = response.data.fig
+          this.histogram = 'static/out.png'
         })
     },
     pa:function () {
@@ -212,7 +212,7 @@ export default {
         .then(response => {
           this.items.push(response.data)
           this.q_output = response.data.output_num
-          this.histogram = response.data.fig
+          this.histogram ='static/out.png'
         })
     },
     SendData: function () {

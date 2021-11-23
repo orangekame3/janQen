@@ -61,7 +61,7 @@ class TextCount(Resource):
                 "output": output,
                 "result": result,
                 "output_num": output_num,
-                "fig": 'static/out.png'
+                "fig": "static/out.png"
             }
             break
         return jsonify(result_data)
