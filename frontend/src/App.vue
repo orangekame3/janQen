@@ -22,12 +22,12 @@
                 量子コンピュータはあなたの入力が完了したら乱数計算をはじめます。<br>
                 出力結果は[Result]に表示されます。<br>
                 <v-container>
-                <img  v-bind:src="janqen" height="240px">
+                <img  v-bind:src="janqen" width="100%">
                 </v-container>
               </v-card-text>
             </v-col>
-            <v-col>
-              <v-card>
+            <v-col class="my-auto">
+              <v-card >
               <img  v-bind:src="histogram" width="100%">
               </v-card>
             </v-col>
