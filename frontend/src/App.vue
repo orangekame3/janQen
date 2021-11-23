@@ -11,27 +11,25 @@
     <v-content>
       <v-container fluid>
         <v-card class="mx-auto my-12" width="100%">
-          <v-row  justify="center" align-content="center" >
-            <v-col>
+          <v-col  justify="center" align-content="center" >
+            <v-raw>
               <v-card-title>ようこそjanQenへ</v-card-title>
               <v-card-text>
                 janQenは量子コンピュータとジャンケンするサービスです。<br>
-                「グー」「チョキ」「パー」のボタンを押してください。<br>
-                すぐにゲームをはじめることができます。<br>
+                「グー」「チョキ」「パー」のボタンを押してください。すぐにゲームをはじめることができます。<br>
                 janQenの仕組みについて知りたい方は<a href="https://github.com/orangekame3/janqen">こちら</a><br>
-                量子コンピュータはあなたの入力が完了したら乱数計算をはじめます。<br>
-                出力結果は[Result]に表示されます。<br>
-                <v-container>
+                量子コンピュータはあなたの入力が完了したら乱数計算をはじめます。出力結果は[Result]に表示されます。<br>
+                <!-- <v-container>
                 <img  v-bind:src="janqen" width="100%">
-                </v-container>
+                </v-container> -->
               </v-card-text>
+            </v-raw>
+            <v-raw class=" mx-auto my-auto">
+              <v-layout justify-center>
+              <img  v-bind:src="histogram" width="50%">
+              </v-layout>
+            </v-raw>
             </v-col>
-            <v-col class="my-auto">
-              <v-card >
-              <img  v-bind:src="histogram" width="100%">
-              </v-card>
-            </v-col>
-            </v-row>
        </v-card>
       </v-container>
     <v-container>
@@ -184,7 +182,7 @@ export default {
         .then(response => {
           this.items.push(response.data)
           this.q_output = response.data.output_num
-          this.histogram = 'static/out.png'
+          this.histogram = response.data.fig
         })
     },
     tyoki:function () {
@@ -198,7 +196,7 @@ export default {
         .then(response => {
           this.items.push(response.data)
           this.q_output = response.data.output_num
-          this.histogram = 'static/out.png'
+          this.histogram = response.data.fig
         })
     },
     pa:function () {
@@ -212,7 +210,7 @@ export default {
         .then(response => {
           this.items.push(response.data)
           this.q_output = response.data.output_num
-          this.histogram ='static/out.png'
+          this.histogram = response.data.fig
         })
     },
     SendData: function () {

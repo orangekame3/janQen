@@ -1,12 +1,13 @@
 from flask import Blueprint, jsonify, request, session
 from flask_restful import Api, Resource
-import json
 import os
 from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit, execute, IBMQ
 from qiskit.tools.monitor import job_monitor
 from model import convObject, judge
 from qiskit.visualization import plot_histogram
 import matplotlib.pyplot as plt
+import datetime
+import glob
 
 TOKEN = os.environ["TOKEN"]
 IBMQ.enable_account(TOKEN)
@@ -18,6 +19,12 @@ text_count_bp = Blueprint("text_count", __name__, url_prefix="/api/post")
 
 class TextCount(Resource):
     def post(self):
+        
+        file_names = glob.glob('dist/static/tmp/*.png')
+        for file_name in file_names:
+            os.remove(file_name)
+        now = datetime.datetime.now()
+        new = "static/tmp/{0:%Y%m%d_%H%M%S}.png".format(now)
 
         input_data = request.json
         n  = 3 
@@ -55,13 +62,13 @@ class TextCount(Resource):
             output = convObject(output_num)
             result = judge(input_num, output_num)
             plt.rcParams['figure.subplot.bottom'] = 0.15
-            plot_histogram(counts, color='midnightblue', title="janQen Result").savefig('dist/static/out.png')
+            plot_histogram(counts, color='#8E2DE2', title="janQen Result").savefig("dist/"+new)
             result_data = {
                 "input": input,
                 "output": output,
                 "result": result,
                 "output_num": output_num,
-                "fig": "static/out.png"
+                "fig": new
             }
             break
         return jsonify(result_data)
