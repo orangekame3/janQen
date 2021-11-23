@@ -10,7 +10,7 @@
     </v-app-bar>
     <v-content>
       <v-container fluid>
-        <v-card class="mx-auto my-12" width="100%">
+        <v-card class="mx-auto my-12" width="90%">
           <v-col  justify="center" align-content="center" >
             <v-raw>
               <v-card-title class="text-sm-h4 font-weight-bold">ようこそjanQenへ</v-card-title>
@@ -32,20 +32,8 @@
             </v-col>
        </v-card>
       </v-container>
-    <v-container>
-     <v-container> 
-       <v-row>
-         <v-col>
-         <p>あなた</p>
-         </v-col>
-         <v-col>
-         <p>量子コンピューター</p>
-         </v-col>
-       </v-row>
-     <v-container>  
-       
+    <v-container> 
     <v-row>
-      
     <v-col >
       <v-layout justify-center>
       <v-card class="d-flex child-flex" width="70%" fluid>
@@ -66,17 +54,31 @@
       </v-card>
        </v-layout>
     </v-col>
-    
   </v-row>
-       
+  <v-container class="my-auto"> 
+       <v-row>
+         <v-col>
+           <v-layout justify-center>
+            <p class="text-sm-h5 font-weight-bold">あなた</p>
+           </v-layout>
+         </v-col>
+         <v-col>
+            <v-layout justify-center>
+              <p class="text-sm-h5 font-weight-bold">量子コンピューター</p>
+            </v-layout>
+         </v-col>
+       </v-row>
+     <v-container> 
      </v-container>
      </v-container>
+     <v-layout justify-center>
       <v-card
       height="100"
       class="d-flex justify-space-between my-6"
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
       flat
       tile
+      width="80%"
     >
       <v-btn
       height="80%"
@@ -111,11 +113,13 @@
       >
       パー
       </v-btn>    
-      </v-card>  
+      </v-card>
+     </v-layout>
       <v-row align="start" justify="center">
         <v-col cols="12">
         <v-card
           class="mx-auto"
+          width="80%"
         >
           <v-toolbar
             color="#8E2DE2"
