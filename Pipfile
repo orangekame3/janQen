@@ -8,6 +8,8 @@ flask = "*"
 flask-restful = "*"
 qiskit = "*"
 gunicorn = "*"
+black = "*"
+matplotlib = "*"
 
 [dev-packages]
 

@@ -4,63 +4,68 @@ import json
 import os
 from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit, execute, IBMQ
 from qiskit.tools.monitor import job_monitor
-from qiskit.providers.ibmq import least_busy
 from model import convObject, judge
-TOKEN = os.environ['TOKEN']
+from qiskit.visualization import plot_histogram
+import matplotlib.pyplot as plt
+
+TOKEN = os.environ["TOKEN"]
 IBMQ.enable_account(TOKEN)
-provider = IBMQ.get_provider(hub='ibm-q')
+provider = IBMQ.get_provider(hub="ibm-q")
 
 # postされたテキストをカウントするapi(POSTメソッド)
-text_count_bp = Blueprint('text_count', __name__, url_prefix='/api/post')
+text_count_bp = Blueprint("text_count", __name__, url_prefix="/api/post")
+
+
 class TextCount(Resource):
     def post(self):
 
-        # postされたデータを読み込み
         input_data = request.json
-
-        # 入力文字列の文字数をカウント
-        #result_data = {'text':input_data['text'], 'count':len(input_data['text'])}
-
-        #backend_lb = least_busy(provider.backends(simulator=False, operational=True))
-        #print("Least busy backend: ", backend_lb)
-        min = 0
-        max = 2
+        n  = 3 
         device = "ibmq_qasm_simulator"
-        #device = "ibmq_lima"
+        # device = "ibmq_lima"
         backend = provider.get_backend(device)
-        #backend = device
+        # backend = device
         if device == "ibmq_qasm_simulator":
-            num_q = 32
+            num_q = 4
         else:
             num_q = 5
 
-        q = QuantumRegister(num_q, 'q')
-        c = ClassicalRegister(num_q, 'c')
+        q = QuantumRegister(num_q, "q")
+        c = ClassicalRegister(num_q, "c")
 
         circuit = QuantumCircuit(q, c)
         circuit.h(q)  # Applies hadamard gate to all qubits
         circuit.measure(q, c)  # Measures all qubits
+        while True:
+            job = execute(circuit, backend, shots=1024)
 
+            print("Executing Job...\n")
+            job_monitor(job)
+            counts = job.result().get_counts()
 
-        job = execute(circuit, backend, shots=1)
+            print("RESULT: ", counts, "\n")
+            print("Press any key to close")
 
-        print('Executing Job...\n')
-        job_monitor(job)
-        counts = job.result().get_counts()
-
-        print('RESULT: ', counts, '\n')
-        print('Press any key to close')
-
-        job_result = int(counts.most_frequent(), 2)
-
-        output_num = min + job_result % (max+1 - min)
-        input_num = input_data['input']
-        input = convObject(input_num)
-        output = convObject(output_num)
-        result = judge(input_num,output_num)
-        result_data  = {'input':input,'output':output,'result':result,'output_num':output_num}
-    
+            rand = int(counts.most_frequent(), 2)
+            output_num = rand % n
+            if (rand-output_num+n)>(2**num_q):
+                continue
+            input_num = input_data["input"]
+            input = convObject(input_num)
+            output = convObject(output_num)
+            result = judge(input_num, output_num)
+            plt.rcParams['figure.subplot.bottom'] = 0.15
+            plot_histogram(counts, color='midnightblue', title="janQen Result").savefig('dist/static/out.png')
+            result_data = {
+                "input": input,
+                "output": output,
+                "result": result,
+                "output_num": output_num,
+                "fig": 'static/out.png'
+            }
+            break
         return jsonify(result_data)
 
+
 text_count = Api(text_count_bp)
-text_count.add_resource(TextCount, '')
+text_count.add_resource(TextCount, "")
