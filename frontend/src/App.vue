@@ -178,6 +178,7 @@ export default {
       this.your_input = 0
       this.q_output = null
       this.q_fig = this.load_fig
+      this.histogram = 'static/result.png'
       axios
         .post('/api/post', g)
         .then(response => {
@@ -191,6 +192,7 @@ export default {
       this.your_input = 1
       this.q_output = null
       this.q_fig = this.load_fig
+      this.histogram = 'static/result.png'
       axios
         .post('/api/post', t)
         .then(response => {
@@ -204,6 +206,7 @@ export default {
       this.your_input = 2
       this.q_output = null
       this.q_fig = this.load_fig
+      this.histogram = 'static/result.png'
       axios
         .post('/api/post', p)
         .then(response => {
