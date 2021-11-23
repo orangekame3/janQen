@@ -13,11 +13,11 @@
         <v-card class="mx-auto my-12" width="100%">
           <v-col  justify="center" align-content="center" >
             <v-raw>
-              <v-card-title>ようこそjanQenへ</v-card-title>
-              <v-card-text>
+              <v-card-title class="text-sm-h4 font-weight-bold">ようこそjanQenへ</v-card-title>
+              <v-card-text class="text-sm-h5">
                 janQenは量子コンピュータとジャンケンするサービスです。<br>
                 「グー」「チョキ」「パー」のボタンを押してください。すぐにゲームをはじめることができます。<br>
-                janQenの仕組みについて知りたい方は<a href="https://github.com/orangekame3/janqen">こちら</a><br>
+                janQenの仕組みについては<a href="https://github.com/orangekame3/janqen">こちら</a>の記事で解説してます。<br>
                 量子コンピュータはあなたの入力が完了したら乱数計算をはじめます。出力結果は[Result]に表示されます。<br>
                 <!-- <v-container>
                 <img  v-bind:src="janqen" width="100%">
@@ -43,34 +43,44 @@
          </v-col>
        </v-row>
      <v-container>  
+       
     <v-row>
+      
     <v-col >
-      <v-card class="d-flex child-flex" height="100%">
+      <v-layout justify-center>
+      <v-card class="d-flex child-flex" width="70%" fluid>
         <img v-if="your_input==null" v-bind:src="your_fig">
         <img v-if="your_input==0" v-bind:src="gu_fig">
         <img v-if="your_input==1" v-bind:src="choki_fig">
         <img v-if="your_input==2" v-bind:src="pa_fig">
       </v-card>
+      </v-layout>
     </v-col>
     <v-col>
-      <v-card  class="d-flex child-flex" height="100%">
-        <img v-if="q_output==null" v-bind:src="q_fig" >
+      <v-layout justify-center>
+      <v-card  class="d-flex child-flex" width="73%" fluid>
+        <img v-if="q_output==null" v-bind:src="q_fig">
         <img v-if="q_output==0" v-bind:src="gu_fig">
         <img v-if="q_output==1" v-bind:src="choki_fig">
         <img v-if="q_output==2" v-bind:src="pa_fig">
       </v-card>
+       </v-layout>
     </v-col>
+    
   </v-row>
+       
      </v-container>
      </v-container>
       <v-card
-      class="d-flex justify-space-between mb-6"
+      height="100"
+      class="d-flex justify-space-between my-6"
       :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-4'"
       flat
       tile
     >
       <v-btn
-      height="70px" width="120"
+      height="80%"
+      width="20%"
       :loading="loading1"
       :disabled="loading1"
       color="#8E2DE2"
@@ -80,7 +90,8 @@
       グー
       </v-btn>
       <v-btn
-      height="70px" width="120"
+      height="80%"
+       width="20%"
       :loading="loading2"
       :disabled="loading2"
       color="#8E2DE2"
@@ -90,7 +101,8 @@
       チョキ
       </v-btn>
       <v-btn
-      height="70px" width="120"
+      height="80%"
+       width="20%"
       :loading="loading3"
       :disabled="loading3"
       color="#8E2DE2"
