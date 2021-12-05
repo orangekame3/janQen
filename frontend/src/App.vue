@@ -1,12 +1,13 @@
 <template>
   <v-app>
-    <v-navigation-drawer app clipped v-model="drawer" dark color="#8E2DE2">
+    <Snow/>
+    <v-navigation-drawer app clipped v-model="drawer" dark color="#146B3A">
     </v-navigation-drawer>
-    <v-app-bar app clippedLeft flat dark color="#8E2DE2">
+    <v-app-bar app clippedLeft flat dark color="#146B3A">
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>janQen</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn outlined href="https://github.com/orangekame3/janqen"
+      <v-btn outlined href="https://github.com/orangekame3/janqen" 
         >GitHub</v-btn
       >
     </v-app-bar>
@@ -88,7 +89,7 @@
               width="20%"
               :loading="loading1"
               :disabled="loading1"
-              color="#8E2DE2"
+              color="#BB2528"
               class="ma-2 white--text"
               @click="gu"
             >
@@ -99,7 +100,7 @@
               width="20%"
               :loading="loading2"
               :disabled="loading2"
-              color="#8E2DE2"
+              color="#BB2528"
               class="ma-2 white--text"
               @click="tyoki"
             >
@@ -110,7 +111,7 @@
               width="20%"
               :loading="loading3"
               :disabled="loading3"
-              color="#8E2DE2"
+              color="#BB2528"
               class="ma-2 white--text"
               @click="pa"
             >
@@ -121,7 +122,7 @@
         <v-row align="start" justify="center">
           <v-col cols="12">
             <v-card class="mx-auto" width="80%">
-              <v-toolbar color="#8E2DE2" dark>
+              <v-toolbar color="#BB2528" dark>
                 <v-toolbar-title>Result</v-toolbar-title>
               </v-toolbar>
               <v-list three-line>
@@ -149,16 +150,17 @@
         </v-row>
       </v-container>
     </v-content>
-    <v-footer app dark color="#8E2DE2"> @orangekame3 </v-footer>
+    <v-footer app dark color="#146B3A"> @orangekame3 </v-footer>
   </v-app>
 </template>
 
 <script>
 import axios from "axios";
-
+// import Snowf from "./components/Snowf.vue";
+import Snow from 'vue-niege';
 export default {
   name: "App",
-
+  components: { Snow },
   data() {
     return {
       // 入力データ
