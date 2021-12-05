@@ -2,9 +2,8 @@ from flask import Blueprint, jsonify, request
 from flask_restful import Api, Resource
 from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit, execute, IBMQ
 from model import cleanfig, convObject, generatefig, judge
-
+import os
 import datetime
-import glob
 
 TOKEN = os.environ["TOKEN"]
 IBMQ.enable_account(TOKEN)
