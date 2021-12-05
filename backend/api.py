@@ -32,7 +32,7 @@ class QuantumRandomGenerator(Resource):
         circuit.measure(q, c)
 
         while True:
-            job = execute(circuit, backend, shots=1024)
+            job = execute(circuit, backend, shots=100)
             print("Executing Job...\n")
 
             counts = job.result().get_counts()
@@ -48,7 +48,7 @@ class QuantumRandomGenerator(Resource):
             input = convObject(input_num)
             output = convObject(output_num)
             result = judge(input_num, output_num)
-            generatefig(counts, now)
+            generatefig(counts, new)
             result_data = {
                 "input": input,
                 "output": output,

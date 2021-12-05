@@ -157,7 +157,7 @@
 <script>
 import axios from "axios";
 // import Snowf from "./components/Snowf.vue";
-import Snow from 'vue-niege';
+import Snow from 'vue-snowf';
 export default {
   name: "App",
   components: { Snow },
