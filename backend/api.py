@@ -1,14 +1,13 @@
 from flask import Blueprint, jsonify, request
 from flask_restful import Api, Resource
 from qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit, execute, IBMQ
-from model import cleanfig, convObject, generatefig, judge
+from model import cleanfig, convObject, generatefig, judge, mapping_list
 import os
 import datetime
 
 TOKEN = os.environ["TOKEN"]
 IBMQ.enable_account(TOKEN)
 provider = IBMQ.get_provider(hub="ibm-q")
-n = 3
 num_q = 4
 device = "ibmq_qasm_simulator"
 backend = provider.get_backend(device)
@@ -40,8 +39,8 @@ class QuantumRandomGenerator(Resource):
             print("RESULT: ", counts, "\n")
 
             rand = int(counts.most_frequent(), 2)
-            output_num = rand % n
-            if (rand - output_num + n) > (2 ** num_q):
+            output_num = rand % 3
+            if  rand not in mapping_list(num_q):
                 continue
 
             input_num = input_data["input"]
@@ -58,6 +57,9 @@ class QuantumRandomGenerator(Resource):
             }
             break
         return jsonify(result_data)
+    
+
+
 
 
 quanturm_random_generator = Api(quantum_random_generator_bp)

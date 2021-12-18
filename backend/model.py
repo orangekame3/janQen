@@ -22,6 +22,14 @@ def judge(i, j):
     else:
         return "あなたの勝ち"
 
+def mapping_list(num_q):
+    if (2**num_q-1)%3==0:
+        lst = list(range(0,2**num_q-1))
+        return lst 
+    if (2**num_q-1)%3==1:
+        lst = list(range(0,2**num_q-2))
+        return lst 
+
 
 def cleanfig():
     file_names = glob.glob("dist/static/tmp/*.png")

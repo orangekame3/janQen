@@ -23,7 +23,7 @@
                 janQenは量子コンピュータとジャンケンするサービスです。<br />
                 「グー」「チョキ」「パー」のボタンを押してください。すぐにゲームをはじめることができます。<br />
                 janQenの仕組みについては<a
-                  href="https://github.com/orangekame3/janqen"
+                  href="https://qiita.com/orangekame3/private/2f1cde38a92f1289cd69"
                   >こちら</a
                 >の記事で解説してます。<br />
                 量子コンピュータはあなたの入力が完了したら乱数計算をはじめます。出力結果は[Result]に表示されます。<br />
