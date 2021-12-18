@@ -31,16 +31,20 @@ class QuantumRandomGenerator(Resource):
         circuit.measure(q, c)
 
         while True:
-            job = execute(circuit, backend, shots=100)
+            job = execute(circuit, backend, shots=1024)
             print("Executing Job...\n")
 
             counts = job.result().get_counts()
 
             print("RESULT: ", counts, "\n")
+            max_k_list = [kv[0] for kv in counts.items() if kv[1] == max(counts.values())]
+            if len(max_k_list)>1:
+                continue
 
             rand = int(counts.most_frequent(), 2)
             output_num = rand % 3
             if  rand not in mapping_list(num_q):
+                print(rand)
                 continue
 
             input_num = input_data["input"]
