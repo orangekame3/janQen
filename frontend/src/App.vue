@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Snow/>
+    <!-- <Snow/> -->
     <v-navigation-drawer app clipped v-model="drawer" dark color="#146B3A">
     </v-navigation-drawer>
     <v-app-bar app clippedLeft flat dark color="#146B3A">
@@ -157,10 +157,10 @@
 <script>
 import axios from "axios";
 // import Snowf from "./components/Snowf.vue";
-import Snow from 'vue-snowf';
+//import Snow from 'vue-snowf';
 export default {
   name: "App",
-  components: { Snow },
+  //components: { Snow },
   data() {
     return {
       // 入力データ
