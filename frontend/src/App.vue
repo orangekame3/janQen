@@ -123,14 +123,14 @@
           <v-col cols="12">
             <v-card class="mx-auto" width="80%">
               <v-toolbar color="#BB2528" dark>
-                <v-toolbar-title>Result</v-toolbar-title>
+                <v-toolbar-title>Result History</v-toolbar-title>
               </v-toolbar>
               <v-list three-line>
                 <template v-for="(item, index) in items">
                   <v-list-item :key="item.title">
                     <v-list-item-content>
                       <v-list-item-title
-                        >この勝負は{{ item.result }}です。</v-list-item-title
+                        >{{index+1}}回目:この勝負は{{ item.result }}です。</v-list-item-title
                       >
                       <v-list-item-subtitle>
                         あなたは{{ item.input }}を
