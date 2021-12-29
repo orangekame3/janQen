@@ -26,7 +26,7 @@
                   href="https://qiita.com/orangekame3/private/2f1cde38a92f1289cd69"
                   >こちら</a
                 >の記事で解説してます。<br />
-                量子コンピュータはあなたの入力が完了したら乱数計算をはじめます。出力結果は[Result]に表示されます。<br />
+                量子コンピュータはあなたの入力が完了後、乱数計算をはじめます。出力結果は[Result]に表示されます。<br />
               </v-card-text>
             </v-raw>
             <v-raw class="mx-auto my-auto">
